@@ -2,7 +2,7 @@
 
 A Catholic prayer application
 
-## Getting Started
+## Project description
 
 This project is a simple prayer applications with a couple of prayers.
 
