@@ -90,7 +90,20 @@ class _HomePageState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Oraciones Catholicas en Español')),
+      appBar: AppBar(title: const Text('Oraciones Catholicas en Español'),
+
+        actions: <Widget>[
+          Padding(
+              padding: EdgeInsets.only(right: 20.0),
+              child: GestureDetector(
+                onTap: _showMyDialog,
+                child: Icon(
+                    Icons.info_rounded
+                ),
+              )
+          ),
+        ],
+      ),
       body: Center(
         child: Stack(
           children: <Widget>[
@@ -436,7 +449,7 @@ Amén.
         builder: (BuildContext context) {
           return new Scaffold(
             appBar: new AppBar(
-              title: new Text('Pagina 2'),
+              title: new Text('Pagina 3'),
             ),
             body: SingleChildScrollView(
               child: new Column(
@@ -522,6 +535,34 @@ Amén.
           );
         },
       ),
+    );
+  }
+
+  Future<void> _showMyDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('AlertDialog Title'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: const <Widget>[
+                Text('This is a demo alert dialog.'),
+                Text('Would you like to approve of this message?'),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Cerrar'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 
