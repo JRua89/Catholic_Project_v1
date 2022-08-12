@@ -1,6 +1,7 @@
 // main.dart
 import 'package:flutter/material.dart';
 
+
 void main() {
   runApp(const MyApp());
 }
@@ -21,6 +22,77 @@ class MyApp extends StatelessWidget {
     );
   }
 
+}
+
+class NavBar extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        // Remove padding
+        padding: EdgeInsets.zero,
+        children: [
+          UserAccountsDrawerHeader(
+            accountName: Text('Oflutter.com'),
+            accountEmail: Text('example@gmail.com'),
+            currentAccountPicture: CircleAvatar(
+              child: ClipOval(
+                child: Image.network(
+                  'https://oflutter.com/wp-content/uploads/2021/02/girl-profile.png',
+                  fit: BoxFit.cover,
+                  width: 90,
+                  height: 90,
+                ),
+              ),
+            ),
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: NetworkImage(
+                      'https://oflutter.com/wp-content/uploads/2021/02/profile-bg3.jpg')),
+            ),
+          ),
+          ListTile(
+            leading: Icon(Icons.favorite),
+            title: Text('Favorites'),
+            onTap: () => null,
+          ),
+          ListTile(
+            leading: Icon(Icons.person),
+            title: Text('Friends'),
+            onTap: () => null,
+          ),
+          ListTile(
+            leading: Icon(Icons.share),
+            title: Text('Share'),
+            onTap: () => null,
+          ),
+          ListTile(
+            leading: Icon(Icons.notifications),
+            title: Text('Request'),
+          ),
+          Divider(),
+          ListTile(
+            leading: Icon(Icons.settings),
+            title: Text('Settings'),
+            onTap: () => null,
+          ),
+          ListTile(
+            leading: Icon(Icons.description),
+            title: Text('Policies'),
+            onTap: () => null,
+          ),
+          Divider(),
+          ListTile(
+            title: Text('Exit'),
+            leading: Icon(Icons.exit_to_app),
+            onTap: () => null,
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 class HomePage extends StatefulWidget {
@@ -90,8 +162,10 @@ class _HomePageState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Oraciones Catholicas en Español'),
-
+      appBar: AppBar(
+        title: const Text(
+            'Oraciones Catholicas'
+        ),
         actions: <Widget>[
           Padding(
               padding: EdgeInsets.only(right: 20.0),
@@ -104,17 +178,47 @@ class _HomePageState extends State<HomePage>
           ),
         ],
       ),
+      drawer: Drawer(
+        child: ListView(
+          // Important: Remove any padding from the ListView.
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+             child: Text('Drawer Header'),
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.privacy_tip_rounded,
+              ),
+              title: const Text('Política de privacidad'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.share,
+              ),
+              title: const Text('Compartir'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
       body: Center(
         child: Stack(
           children: <Widget>[
-            SizedBox(
-              height: 100,
-            ),
+
             Container(
               alignment: Alignment.center,
               child: Image.asset(
                 'Assets/images/nutsisnitin-1574320526796-cathopic.jpg',
-
+                height: double.infinity,
                 width: double.infinity,
                 fit: BoxFit.fill,
               ),
@@ -565,6 +669,7 @@ Amén.
       },
     );
   }
+
 
 
 }
