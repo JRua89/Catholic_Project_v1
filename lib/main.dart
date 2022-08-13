@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
 
+
+
 void main() {
   runApp(const MyApp());
 }
@@ -24,76 +26,6 @@ class MyApp extends StatelessWidget {
 
 }
 
-class NavBar extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Drawer(
-      child: ListView(
-        // Remove padding
-        padding: EdgeInsets.zero,
-        children: [
-          UserAccountsDrawerHeader(
-            accountName: Text('Oflutter.com'),
-            accountEmail: Text('example@gmail.com'),
-            currentAccountPicture: CircleAvatar(
-              child: ClipOval(
-                child: Image.network(
-                  'https://oflutter.com/wp-content/uploads/2021/02/girl-profile.png',
-                  fit: BoxFit.cover,
-                  width: 90,
-                  height: 90,
-                ),
-              ),
-            ),
-            decoration: BoxDecoration(
-              color: Colors.blue,
-              image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image: NetworkImage(
-                      'https://oflutter.com/wp-content/uploads/2021/02/profile-bg3.jpg')),
-            ),
-          ),
-          ListTile(
-            leading: Icon(Icons.favorite),
-            title: Text('Favorites'),
-            onTap: () => null,
-          ),
-          ListTile(
-            leading: Icon(Icons.person),
-            title: Text('Friends'),
-            onTap: () => null,
-          ),
-          ListTile(
-            leading: Icon(Icons.share),
-            title: Text('Share'),
-            onTap: () => null,
-          ),
-          ListTile(
-            leading: Icon(Icons.notifications),
-            title: Text('Request'),
-          ),
-          Divider(),
-          ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Settings'),
-            onTap: () => null,
-          ),
-          ListTile(
-            leading: Icon(Icons.description),
-            title: Text('Policies'),
-            onTap: () => null,
-          ),
-          Divider(),
-          ListTile(
-            title: Text('Exit'),
-            leading: Icon(Icons.exit_to_app),
-            onTap: () => null,
-          ),
-        ],
-      ),
-    );
-  }
-}
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key,  required this.title}) : super(key: key);
@@ -177,18 +109,16 @@ class _HomePageState extends State<HomePage>
                       .copyWith(topRight: Radius.circular(0))),
               padding: EdgeInsets.all(10),
               elevation: 10,
-
               onSelected: (value) {
-
                 if (value == 'Choice._privacypolicy') {
                   _privacypolicy();
                   print('[home.dart] _privacypolicy()');
                 } else if (value == 'Choice._share') {
+                  Share.share('check out my website https://example.com', subject: 'Look what I made!');
                   print('[home.dart] _share()');
                 }else{
 
                 }
-
               },
               itemBuilder: (context) {
                 return [
@@ -251,38 +181,9 @@ class _HomePageState extends State<HomePage>
             ),
         ],
       ),
-      drawer: Drawer(
-        child: ListView(
-          // Important: Remove any padding from the ListView.
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-             child: Text('Drawer Header'),
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.privacy_tip_rounded,
-              ),
-              title: const Text('Política de privacidad'),
-              onTap: _privacypolicy,
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.share,
-              ),
-              title: const Text('Compartir'),
-              onTap: _privacypolicy,
-            ),
-          ],
-        ),
-      ),
       body: Center(
         child: Stack(
           children: <Widget>[
-
             Container(
               alignment: Alignment.center,
               child: Image.asset(
@@ -833,7 +734,6 @@ to address intellectual property infringement, right of privacy violations or de
       },
     );
   }
-
 
 
 }
