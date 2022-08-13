@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // Remove the debug banner
         debugShowCheckedModeBanner: false,
-        title: 'Oraciones Catholicas en Español',
+        title: 'Oraciones Catholicas básicas',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
@@ -96,7 +96,7 @@ class _HomePageState extends State<HomePage>
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-            'Oraciones Catholicas'
+            'Oraciones Catholicas básicas'
         ),
         actions: <Widget> [
             PopupMenuButton(
@@ -114,7 +114,7 @@ class _HomePageState extends State<HomePage>
                   _privacypolicy();
                   print('[home.dart] _privacypolicy()');
                 } else if (value == 'Choice._share') {
-                  Share.share('check out my website https://example.com', subject: 'Look what I made!');
+                  Share.share('En la tienda de aplicacion https://example.com', subject: 'Aplicacion oraciones catolica básicas');
                   print('[home.dart] _share()');
                 }else{
 
