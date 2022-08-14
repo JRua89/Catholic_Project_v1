@@ -685,6 +685,7 @@ In accordance with the obligations of the Regulation (EU) 2016/679 of the Europe
 
 Data processor
 
+
 John rua does not own any of the client data stored or processed via the service gold.appybuilder.com
 
 John Rua is not responsible for the content of the personal data contained in the client data or other information stored on its servers.
