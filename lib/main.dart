@@ -713,7 +713,8 @@ In these situations, if you choose to withhold any personal data request by us, 
 
 
 How we use the information we collect
-
+ 
+ 
 We use the information that we collect in a variety of ways in providing the service and operating our business.
 Including the following operations:
 - Maintain, enhance and provide all features of the service, to provide the services and information that you request,
